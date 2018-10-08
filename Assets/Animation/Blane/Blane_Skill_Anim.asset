@@ -11,6 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073c2fc7d7d71f743b8bfb697de38525, type: 3}
   m_Name: Blane_Skill_Anim
   m_EditorClassIdentifier: 
-  _secondsUntilNext: 0
+  _secondsUntilNext: 0.3
   _loop: 0
-  _sprites: []
+  _sprites:
+  - {fileID: 21300000, guid: 65b68a0161db00545853062ee1f0a41d, type: 3}
+  - {fileID: 21300000, guid: 1a5b34bc711825c45891a63e7566bd03, type: 3}
+  - {fileID: 21300000, guid: cfa5c1ac3831f714eb4aa9b9454e6d20, type: 3}

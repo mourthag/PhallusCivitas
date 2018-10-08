@@ -11,5 +11,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4350feea8772d24b8ebbebe81af8bad, type: 3}
   m_Name: Blane Animator
   m_EditorClassIdentifier: 
-  _animationSteps: []
+  _animationSteps:
+  - Name: 0
+    Animation: {fileID: 11400000, guid: 47a4b182df6d15f45abba13abb6d68e8, type: 2}
+  - Name: 1
+    Animation: {fileID: 11400000, guid: 51536cf4412b53340a9690f6a8f7c51e, type: 2}
+  - Name: 2
+    Animation: {fileID: 11400000, guid: 913152c7debe4834783af329b8363294, type: 2}
+  - Name: 3
+    Animation: {fileID: 11400000, guid: 9a3b8258e2ccc3741b51e565c4c00983, type: 2}
+  - Name: 4
+    Animation: {fileID: 11400000, guid: fa2d45c70e1d4914fadb07e236ace413, type: 2}
+  - Name: 5
+    Animation: {fileID: 11400000, guid: b7bac177ddfacb440bb25ee46c60c9d5, type: 2}
   _defaultAnimation: 0

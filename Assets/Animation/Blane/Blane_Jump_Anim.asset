@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073c2fc7d7d71f743b8bfb697de38525, type: 3}
   m_Name: Blane_Jump_Anim
   m_EditorClassIdentifier: 
-  _secondsUntilNext: 0
+  _secondsUntilNext: 0.2
   _loop: 0
-  _sprites: []
+  _sprites:
+  - {fileID: 21300000, guid: a7c5f8ff81d9d1e43af7e24d7d9b29a5, type: 3}
