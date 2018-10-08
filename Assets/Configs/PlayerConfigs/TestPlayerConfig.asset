@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8171986b4d549a1ae114a83725e448d, type: 3}
   m_Name: TestPlayerConfig
   m_EditorClassIdentifier: 
-  MaxJumpHeight: 25
+  MaxJumpHeight: 30
   MinJumpHeight: 1
-  MoveSpeed: 40
+  MoveSpeed: 50
   TimeToJumpApex: 0.3
