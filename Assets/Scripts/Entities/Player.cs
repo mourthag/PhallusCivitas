@@ -12,7 +12,7 @@ namespace Entities
         [SerializeField] public PlayerAnimation Animation;
         [SerializeField] public SpriteRenderer _playerIdSprite;
 
-        private int _playerId;
+        private int _playerId = 1;
 
         public int PlayerId
         {
