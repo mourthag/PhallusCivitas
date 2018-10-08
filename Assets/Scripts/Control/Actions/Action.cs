@@ -20,13 +20,17 @@ namespace Control.Actions
 
         private void Awake()
         {
-            Cooldown = new Cooldown(CooldownTime);
-            Cooldown.IsOnCoolDown.Where(cd => !cd).Subscribe(_ => IsOnCooldown = false);
 
             if (!PlayerAnimation)
             {
                 PlayerAnimation = GetComponent<PlayerAnimation>();
             }
+        }
+
+        private void Start()
+        {
+            Cooldown = new Cooldown(CooldownTime);
+            Cooldown.IsOnCoolDown.Where(cd => !cd).Subscribe(_ => IsOnCooldown = false);
         }
 
         public virtual void TryToActivate(Direction direction)
