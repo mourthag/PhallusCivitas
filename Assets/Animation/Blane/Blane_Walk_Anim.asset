@@ -11,6 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073c2fc7d7d71f743b8bfb697de38525, type: 3}
   m_Name: Blane_Walk_Anim
   m_EditorClassIdentifier: 
-  _secondsUntilNext: 0
-  _loop: 0
-  _sprites: []
+  _secondsUntilNext: 1
+  _loop: 1
+  _sprites:
+  - {fileID: 21300000, guid: bcbd1ba11d361794f8dc4633c30594a5, type: 3}
+  - {fileID: 21300000, guid: 478b96448d07b874db19fd7d9d686457, type: 3}
+  - {fileID: 21300000, guid: fe94e9e9b847b39478c902b371d70bf1, type: 3}
+  - {fileID: 21300000, guid: ddce8a50c0c719a47ac1a575e1fd7ad2, type: 3}

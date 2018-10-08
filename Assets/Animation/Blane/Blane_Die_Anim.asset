@@ -11,6 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073c2fc7d7d71f743b8bfb697de38525, type: 3}
   m_Name: Blane_Die_Anim
   m_EditorClassIdentifier: 
-  _secondsUntilNext: 0
+  _secondsUntilNext: 0.4
   _loop: 0
-  _sprites: []
+  _sprites:
+  - {fileID: 21300000, guid: 7938f963a80cc4d4b9b11eb6d78b0846, type: 3}
+  - {fileID: 21300000, guid: be31e7d58f50e41428a0de2a1deba1b0, type: 3}
+  - {fileID: 21300000, guid: c83af396b50727a489dd30314857602c, type: 3}
+  - {fileID: 21300000, guid: dcbc5796e73a61645aae0cc648174773, type: 3}

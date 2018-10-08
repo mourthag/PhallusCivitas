@@ -11,6 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073c2fc7d7d71f743b8bfb697de38525, type: 3}
   m_Name: Blane_Idle_Anim
   m_EditorClassIdentifier: 
-  _secondsUntilNext: 0
-  _loop: 0
-  _sprites: []
+  _secondsUntilNext: 0.3
+  _loop: 1
+  _sprites:
+  - {fileID: 21300000, guid: 84ec5ffc32b4b8f46b3da7c83c65881a, type: 3}
+  - {fileID: 21300000, guid: 66064b8657ca9184d8dd8ee40ab0bde5, type: 3}

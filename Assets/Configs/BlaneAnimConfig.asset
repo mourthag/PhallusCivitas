@@ -11,5 +11,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4350feea8772d24b8ebbebe81af8bad, type: 3}
   m_Name: BlaneAnimConfig
   m_EditorClassIdentifier: 
-  _animationSteps: []
+  _animationSteps:
+  - Name: 0
+    Animation: {fileID: 0}
+  - Name: 0
+    Animation: {fileID: 0}
+  - Name: 0
+    Animation: {fileID: 0}
+  - Name: 0
+    Animation: {fileID: 0}
+  - Name: 0
+    Animation: {fileID: 0}
   _defaultAnimation: 0
