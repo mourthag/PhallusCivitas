@@ -49,6 +49,7 @@ namespace Control
 
         protected virtual Vector2 GetHorizontalInput()
         {
+            Debug.Log(InputProvider.GetAxis("Horizontal"));
             return new Vector2(InputProvider.GetAxis("Horizontal"), 0f);
         }
 
