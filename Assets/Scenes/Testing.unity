@@ -321,7 +321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cooldownTimeInSeconds: 1
   _animation: {fileID: 1497817061}
-  _dashRange: 3
+  _dashRange: 30
   _sprite: {fileID: 1497817064}
   _dashTimeInSeconds: 0.1
   _controller: {fileID: 1497817059}
@@ -412,7 +412,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.23, y: 0.35}
+  m_Size: {x: 8, y: 12}
   m_EdgeRadius: 0
 --- !u!212 &1497817064
 SpriteRenderer:
