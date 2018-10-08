@@ -32,12 +32,12 @@ namespace Control.Actions
 
             switch (direction)
             {
-                case Direction.LEFT:
-                    projectileSpeed = Vector2.left;
-                    rotation = Quaternion.Euler(0, 0, 180);
-                    break;
                 case Direction.RIGHT:
                     projectileSpeed = Vector2.right;
+                    rotation = Quaternion.Euler(0, 0, 180);
+                    break;
+                case Direction.LEFT:
+                    projectileSpeed = Vector2.left;
 
                     break;
                 case Direction.TOP:
@@ -52,7 +52,7 @@ namespace Control.Actions
 
             var projectilGameObject  = Instantiate(_projectilePrefab, transform.position, rotation);
             var projectile = projectilGameObject.GetComponent<Projectile>();
-            projectile.SetSpeed(projectileSpeed);
+            projectile.SetSpeed(150 * projectileSpeed);
         }
     }
 }
