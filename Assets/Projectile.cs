@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Gamelogic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
@@ -12,11 +13,6 @@ public class Projectile : MonoBehaviour
     {
         _projectileSpeed = projectileSpeed;
     }
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update ()

@@ -20,11 +20,29 @@ GameObject:
   m_Component:
   - component: {fileID: 4763669442324202}
   - component: {fileID: 61772274307240090}
+  - component: {fileID: 50097665743914538}
   - component: {fileID: 114792091370043608}
   - component: {fileID: 114635688402639352}
   - component: {fileID: 114423008278510558}
   m_Layer: 8
   m_Name: Blane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1091321170510732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4695326008607184}
+  - component: {fileID: 114702151194680508}
+  - component: {fileID: 61742638290916268}
+  m_Layer: 8
+  m_Name: PlayerHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4032634978754196}
   - component: {fileID: 61502455752549370}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: MeleeHitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,6 +196,19 @@ Transform:
   m_Father: {fileID: 4134012828731038}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4695326008607184
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1091321170510732}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4763669442324202}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4763669442324202
 Transform:
   m_ObjectHideFlags: 1
@@ -190,9 +221,30 @@ Transform:
   m_Children:
   - {fileID: 4462249299651662}
   - {fileID: 4134012828731038}
+  - {fileID: 4695326008607184}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50097665743914538
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1014752146879158}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &61502455752549370
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -202,7 +254,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 10, y: -6}
@@ -217,6 +269,31 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 16, y: 24}
+  m_EdgeRadius: 0
+--- !u!61 &61742638290916268
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1091321170510732}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2, y: -8}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 50, y: 50}
+    newSize: {x: 50, y: 50}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 22, y: 34}
   m_EdgeRadius: 0
 --- !u!61 &61772274307240090
 BoxCollider2D:
@@ -256,8 +333,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AcType: 1
   WindupTime: 0.01
-  CooldownTime: 1
-  PlayerAnimation: {fileID: 114377154648404302}
+  CooldownTime: 0.4
+  Player: {fileID: 114792091370043608}
   _weaponCollider: {fileID: 61502455752549370}
 --- !u!114 &114377154648404302
 MonoBehaviour:
@@ -271,7 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _config: {fileID: 11400000, guid: 74846f55b1730ec43b3eb6e499581803, type: 2}
-  _renderer: {fileID: 212235357107611156}
+  _player: {fileID: 114792091370043608}
 --- !u!114 &114423008278510558
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -283,9 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33832c40e59f421ba04d50d2c90d3205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 212235357107611156}
   _conf: {fileID: 11400000, guid: 5d4aa34e853b21649ab9d772a84699aa, type: 2}
-  _animation: {fileID: 114377154648404302}
   _player: {fileID: 114792091370043608}
   Attack: {fileID: 114809367642165568}
   Skill: {fileID: 114204342371199184}
@@ -306,6 +381,18 @@ MonoBehaviour:
   HorizontalRayCount: 10
   VerticalRayCount: 20
   Collider: {fileID: 0}
+--- !u!114 &114702151194680508
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1091321170510732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e905fecca94ad546b7185d7597888e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 114792091370043608}
 --- !u!114 &114792091370043608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -317,10 +404,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adfda6d39936a91469e6025c80b2be51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 212235357107611156}
   _controller: {fileID: 114423008278510558}
-  _sprite: {fileID: 212235357107611156}
-  Animation: {fileID: 114377154648404302}
-  _playerIdSprite: {fileID: 0}
+  _animation: {fileID: 114377154648404302}
+  _teamId: 0
+  _team: {fileID: 0}
+  _health: {fileID: 114702151194680508}
+  _playerId: 1
 --- !u!114 &114809367642165568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -332,11 +422,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c4afa520e0b4c40a4847998d4a69f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AcType: 2
+  AcType: 0
   WindupTime: 1
   CooldownTime: 1
-  PlayerAnimation: {fileID: 114377154648404302}
-  _playerController: {fileID: 114423008278510558}
+  Player: {fileID: 114792091370043608}
   _projectilePrefab: {fileID: 1859824837766366, guid: 4ddc928f1d3ec61458e198b686e9540f,
     type: 2}
 --- !u!212 &212235357107611156

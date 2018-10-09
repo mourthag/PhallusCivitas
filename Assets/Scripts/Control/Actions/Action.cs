@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using Assets.Scripts.Util;
+using Entities;
 using UniRx;
 
 namespace Control.Actions
@@ -12,7 +13,7 @@ namespace Control.Actions
 
         [SerializeField] protected float WindupTime = 0;
         [SerializeField] protected float CooldownTime = 1;
-        [SerializeField] protected PlayerAnimation PlayerAnimation;
+        [SerializeField] protected Player Player;
 
         protected Cooldown Cooldown;
         protected bool IsOnCooldown;
@@ -23,11 +24,6 @@ namespace Control.Actions
 
             Cooldown = new Cooldown(CooldownTime);
             Cooldown.IsOnCoolDown.Where(cd => !cd).Subscribe(_ => IsOnCooldown = false);
-
-            if (!PlayerAnimation)
-            {
-                PlayerAnimation = GetComponent<PlayerAnimation>();
-            }
         }
 
         public virtual void TryToActivate(Direction direction)
@@ -40,10 +36,10 @@ namespace Control.Actions
             switch (AcType)
             {
                 case ActionType.Attack:
-                    PlayerAnimation.Attack();
+                    Player.Animation.Attack();
                     break;
                 case ActionType.Skill:
-                    PlayerAnimation.UseSkill();
+                    Player.Animation.UseSkill();
                     break;
                 case ActionType.Other:
                     break;
