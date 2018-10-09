@@ -1,17 +1,18 @@
-﻿using UnityEngine;
+﻿using Entities;
+using UnityEngine;
 
 namespace Gamelogic
 {
-    [RequireComponent(typeof(TeamIdentifier))]
+    [RequireComponent(typeof(Player))]
     public class PlayerHealth : MonoBehaviour
     {
 
         private bool _isInvincible;
-        private TeamIdentifier _identifier;
+        private Player _player;
 
         private void Start()
         {
-            _identifier = GetComponent<TeamIdentifier>();
+            _player = GetComponent<Player>();
             _isInvincible = false;
         }
 
@@ -21,8 +22,8 @@ namespace Gamelogic
 
             var otherIdentifier = other.gameObject.GetComponent<TeamIdentifier>();
             if (!otherIdentifier) return;
-            if(otherIdentifier.GetTeamId() != _identifier.GetTeamId())
-                Debug.Log("Ded");
+            if (otherIdentifier.GetTeamId() != _player.TeamId())
+                _player.Die();
         }
     }
 }

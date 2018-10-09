@@ -10,9 +10,7 @@ namespace Control
     [RequireComponent(typeof (CollisionController))]
     public abstract class PlayerControllerBase : MonoBehaviour
     {
-        [SerializeField] private SpriteRenderer _sprite;
         [SerializeField] private PlayerMovementConfig _conf;
-        [SerializeField] private PlayerAnimation _animation;
         [SerializeField] private Player _player;
 
         [SerializeField] public Action Attack;
@@ -74,13 +72,13 @@ namespace Control
 
             if (Velocity.y < 0.1)
             {
-                _animation.HitGround();
+                _player.Animation.HitGround();
             }
 
             if (IsHittingCeiling || IsOnGround)
             {
                 Velocity.y = 0;
-                _animation.HitGround();
+                _player.Animation.HitGround();
             }
         }
 
@@ -101,11 +99,11 @@ namespace Control
             if (!_looksLeft && horizontalInput.x < 0)
             {
                 _looksLeft = true;
-                _sprite.transform.localRotation = Quaternion.Euler(0, 180, 0);
+                _player.SpriteRenderer.transform.localRotation = Quaternion.Euler(0, 180, 0);
             } else if (_looksLeft && horizontalInput.x > 0)
             {
                 _looksLeft = false;
-                _sprite.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                _player.SpriteRenderer.transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
         }
 
@@ -169,7 +167,7 @@ namespace Control
                 if (IsOnGround)
                 {
                     Velocity.y = MaxJumpVelocity;
-                    _animation.Jump();
+                    _player.Animation.Jump();
                 }
             }
 
@@ -188,7 +186,7 @@ namespace Control
             _velocityXSmoothing = 0;
         }
 
-        public bool isLookingLeft
+        public bool IsLookingLeft
         {
             get { return this._looksLeft; }
 

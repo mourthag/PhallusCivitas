@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Animation;
 using Control;
+using Entities;
 using UnityEngine;
 using UniRx;
 using UnityEditor;
@@ -19,10 +20,12 @@ namespace Control
         Death = 5
     }
     
+    [RequireComponent(typeof(Player))]
     public class PlayerAnimation : MonoBehaviour
     {
         [SerializeField] private PlayerAnimatorConfig _config;
-        [SerializeField] private SpriteRenderer _renderer;
+        [SerializeField] private Player _player;
+
 
         private SpriteAnimator<PlayerAnimationState> _animator;
 
@@ -30,7 +33,7 @@ namespace Control
 
         private void Awake()
         {
-            _animator = new SpriteAnimator<PlayerAnimationState>(_config, _renderer);
+            _animator = new SpriteAnimator<PlayerAnimationState>(_config, _player.SpriteRenderer);
             _animator.PlayAnimation(PlayerAnimationState.Idle);
         }
 

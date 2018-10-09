@@ -1,6 +1,7 @@
 ﻿using System;
 using Control;
 using Gamelogic;
+using UniRx;
 using UnityEditor;
 using UnityEngine;
 
@@ -8,7 +9,9 @@ namespace Entities
 {
     public class Player : MonoBehaviour
     {
+        [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private PlayerControllerBase _controller;
+        [SerializeField] private PlayerAnimation _animation;
         [SerializeField] private int _teamId;
         [SerializeField] private TeamIdentifier _team;
         [SerializeField] private PlayerHealth _health;
@@ -20,15 +23,15 @@ namespace Entities
         {
             _health = gameObject.AddComponent<PlayerHealth>();
             _team = GetComponent<TeamIdentifier>();
-            if (!_team)
+            if (!Team)
             {
                 _team = gameObject.AddComponent<TeamIdentifier>();
             }
         }
 
-        public int GetTeamId()
+        public int TeamId()
         {
-            return _team.GetTeamId();
+            return Team.GetTeamId();
         }
 
         public int PlayerId
@@ -40,6 +43,40 @@ namespace Entities
             }
         }
 
-        public void LookLeft() { _controller.UpdateViewDirection(new Vector2(-1,0)); }
+        public SpriteRenderer SpriteRenderer
+        {
+            get { return _spriteRenderer;}
+        }
+
+        public PlayerAnimation Animation
+        {
+            get{ return _animation;}
+        }
+
+        public PlayerControllerBase Controller
+        {
+            get{ return _controller;}
+        }
+
+        public TeamIdentifier Team
+        {
+            get { return _team;}
+        }
+
+        public PlayerHealth Health
+        {
+            get { return _health;}
+        }
+
+        public void Die(bool respawn=true)
+        {
+            Animation.Die();
+
+            if (respawn)
+            {
+            }
+        }
+
+        public void LookLeft() { Controller.UpdateViewDirection(new Vector2(-1,0)); }
     }
 }
