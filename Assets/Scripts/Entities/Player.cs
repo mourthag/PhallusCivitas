@@ -19,19 +19,19 @@ namespace Entities
         [SerializeField] private int _playerId = 1;
 
 
-        private void Start()
+        private void Awake()
         {
-            _health = gameObject.AddComponent<PlayerHealth>();
             _team = GetComponent<TeamIdentifier>();
             if (!Team)
             {
                 _team = gameObject.AddComponent<TeamIdentifier>();
+                _team.TeamId = _teamId;
             }
         }
 
         public int TeamId()
         {
-            return Team.GetTeamId();
+            return Team.TeamId;
         }
 
         public int PlayerId

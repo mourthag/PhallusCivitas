@@ -3,7 +3,7 @@
 --- !u!13 &1
 InputManager:
   m_ObjectHideFlags: 0
-  serializedVersion: 3
+  serializedVersion: 2
   m_Axes:
   - serializedVersion: 3
     m_Name: Horizontal 1
@@ -90,8 +90,8 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: left
-    altNegativeButton: right
+    positiveButton: right
+    altNegativeButton: left
     altPositiveButton: 
     gravity: 1000
     dead: 0.001
@@ -138,7 +138,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: enter
+    positiveButton: '#'
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000

@@ -1,12 +1,13 @@
 ﻿
 
+using Entities;
+using Gamelogic;
 using UnityEngine;
 
 namespace Control.Actions
 {
     public class BlaneSpecial :  Action
     {
-        [SerializeField] private PlayerControllerBase _playerController;
         [SerializeField] private GameObject _projectilePrefab;
 
         public override void TryToActivate(Direction direction)
@@ -14,8 +15,8 @@ namespace Control.Actions
             if (IsOnCooldown) return;
 
             base.TryToActivate(direction);
-            _playerController.DisableInput();
-            PlayerAnimation.UseSkill();
+            Player.Controller.DisableInput();
+            Player.Animation.UseSkill();
         }
 
         public override void Activate(Direction direction)
@@ -25,7 +26,7 @@ namespace Control.Actions
 
         public void ShootProjectile(Direction direction)
         {
-            _playerController.EnableInput();
+            Player.Controller.EnableInput();
 
             Vector2 projectileSpeed;
             Quaternion rotation = Quaternion.identity;
@@ -53,6 +54,9 @@ namespace Control.Actions
             var projectilGameObject  = Instantiate(_projectilePrefab, transform.position, rotation);
             var projectile = projectilGameObject.GetComponent<Projectile>();
             projectile.SetSpeed(150 * projectileSpeed);
+
+            var teamId = projectilGameObject.AddComponent<TeamIdentifier>();
+            teamId.TeamId = Player.TeamId();
         }
     }
 }
