@@ -12,12 +12,14 @@ namespace Entities
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private PlayerControllerBase _controller;
         [SerializeField] private PlayerAnimation _animation;
-        [SerializeField] private int _teamId;
         [SerializeField] private TeamIdentifier _team;
         [SerializeField] private PlayerHealth _health;
 
+        [SerializeField] private int _teamId;
         [SerializeField] private int _playerId = 1;
+        [SerializeField] private float _respawnTime = 0.5f;
 
+        private LevelController _levelController;
 
         private void Awake()
         {
@@ -27,6 +29,7 @@ namespace Entities
                 _team = gameObject.AddComponent<TeamIdentifier>();
                 _team.TeamId = _teamId;
             }
+            _levelController = FindObjectOfType<LevelController>();
         }
 
         public int TeamId()
@@ -68,12 +71,25 @@ namespace Entities
             get { return _health;}
         }
 
+        public float RespawnTime
+        {
+            get { return _respawnTime;}
+        }
+
         public void Die(bool respawn=true)
         {
             Animation.Die();
+            _controller.DisableInput();
+            _health.SetInvincible(_respawnTime);
 
             if (respawn)
             {
+                Observable.Timer(TimeSpan.FromSeconds(_respawnTime))
+                    .Subscribe(_ =>
+                    {
+                        _levelController.Respawn(_playerId);
+                        _controller.EnableInput();
+                    });
             }
         }
 

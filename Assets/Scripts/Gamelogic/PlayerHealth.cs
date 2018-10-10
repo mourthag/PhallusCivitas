@@ -1,4 +1,6 @@
-﻿using Entities;
+﻿using System;
+using Entities;
+using UniRx;
 using UnityEngine;
 
 namespace Gamelogic
@@ -22,6 +24,17 @@ namespace Gamelogic
             if (!otherIdentifier) return;
             if (otherIdentifier.TeamId != _player.TeamId())
                 _player.Die();
+        }
+
+        public void SetInvincible(bool value)
+        {
+            _isInvincible = value;
+        }
+
+        public void SetInvincible(float timespan)
+        {
+            _isInvincible = true;
+            Observable.Timer(TimeSpan.FromSeconds(timespan)).Subscribe(_ => _isInvincible = false);
         }
     }
 }
