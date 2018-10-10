@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _possibleRespawns:
     serializedVersion: 2
-    x: 0
+    x: -125
     y: 0
-    width: 400
+    width: 250
     height: 50
